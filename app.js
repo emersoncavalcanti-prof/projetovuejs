@@ -31,6 +31,9 @@ const myApp = {
         addCart(produto){
             this.carrinho.push(produto);
         },
+        limparCart(){
+             this.carrinho = [];
+        },
         totalCarrinho(){
           return this.formatarMoeda(this.carrinho.reduce((total, item) => 
           total + item.valor, 0));

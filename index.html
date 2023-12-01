@@ -50,11 +50,25 @@
                 </div>
                 
                 <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="cart.html">Carrinho - <span class="cart-amunt"> {{totalCarrinho()}}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{{ carrinho.length }}</span></a>
+             
+                    <div onmouseover="exibirLista()" onclick="ocultarLista()" class="shopping-item">
+                        <a>Carrinho - <span class="cart-amunt"> {{totalCarrinho()}}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">{{ carrinho.length }}</span></a>
                     </div>
+                    
                 </div>
             </div>
+
+            
+            <div id="lista">
+                
+                <div v-for="(item,index) in carrinho" :key="index">
+                    <img :src="item.img" alt="">
+                    1x {{ item.descricao }}
+                    R$ {{item.valor}}
+                </div>
+
+                <a href="#" @click.prevent="limparCart()" >Limpar Carrinho</a>
+              </div>
         </div>
     </div> <!-- End site branding area -->
     
@@ -458,5 +472,6 @@
 <script src="./app.js"></script>
 <script src="./componentes/ProdutoVenda.js"></script>
 <script>app.mount('#app');</script>
+<script src="js.js"></script>
 </body>
 </html>
